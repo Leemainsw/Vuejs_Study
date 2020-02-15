@@ -1,7 +1,9 @@
+const path = reauire('path');
+
 module.exports = {
     entry: {
         //하나로 합쳐질 파일의 이름(app.js)
-        app: './main.js',
+        app: path.join(__dirname, 'main.js'),
     },
     module: {
         rules:[{
@@ -11,6 +13,6 @@ module.exports = {
     plugins: [],
     output: {
         filename: 'app.js',
-        path: './dist',
+        path: path.join(__dirname, 'dist'),
     },
 };
