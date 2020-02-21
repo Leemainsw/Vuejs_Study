@@ -1,3 +1,4 @@
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = reauire('path');
 
 module.exports = {
@@ -7,10 +8,13 @@ module.exports = {
     },
     module: {
         rules:[{
-
+            test: /\.vew$/,
+            loder: 'vue-loader',
         }],
     },
-    plugins: [],
+    plugins: [
+        new VueLoaderPlugin(),
+    ],
     output: {
         filename: 'app.js',
         path: path.join(__dirname, 'dist'),
