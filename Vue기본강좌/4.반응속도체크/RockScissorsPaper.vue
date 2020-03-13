@@ -19,6 +19,8 @@
         보 : '-284px',
     }
 
+    let interval = null;
+
     export default {
         data(){ //화면에 보여지는 것은 data
             return{
@@ -42,6 +44,27 @@
 
             }
         },
+
+        mounted() {
+            console.log('mounted');
+            interval = setInterval(() => {
+                if(this.imgCord === rspCords.바위){
+                    this.imgCord = rspCords.가위;
+                } else if(this.imgCord === rspCords.가위){
+                    this.imgCord = rspCords.보;
+                } else if(this.imgCord === rspCords.보){
+                    this.imgCord = rspCords.바위;
+                }
+
+            }, 100);
+        },
+
+        beforeDestroy() {
+            console.log('beforeDestroy');
+          clearInterval(interval);
+        },
+        destroyed() {
+        }
     };
 </script>
 
